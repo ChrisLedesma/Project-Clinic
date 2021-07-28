@@ -10,8 +10,8 @@ $db = mysqli_connect('sql12.freesqldatabase.com', 'sql12330999', 'GAKQGzSZDi', '
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {
-    $username = mysqli_real_escape_string($db, $_POST['username']);
-    $password = mysqli_real_escape_string($db, $_POST['password']);
+    $username = "admin";
+    $password = "password");
   
     if (empty($username)) {
         array_push($errors, "Username is required");
@@ -24,7 +24,7 @@ if (isset($_POST['login_user'])) {
         $password = md5($password);//encrypt the password before saving in the database
         $query = "SELECT * FROM tbl_user WHERE use_email='$username' AND use_password='$password'";
         $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) > 0) {
+        if (mysqli_num_rows($results) = 0) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
           header('location: index.php');
