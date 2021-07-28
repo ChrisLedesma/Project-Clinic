@@ -24,7 +24,7 @@ if (isset($_POST['login_user'])) {
         $password = md5($password);//encrypt the password before saving in the database
         $query = "SELECT * FROM tbl_user WHERE use_email='$username' AND use_password='$password'";
         $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) = 0) {
+        if (mysqli_num_rows($results) >0) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "You are now logged in";
           header('location: index.php');
